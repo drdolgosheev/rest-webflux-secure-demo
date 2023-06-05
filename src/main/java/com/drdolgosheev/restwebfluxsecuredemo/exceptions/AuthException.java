@@ -1,2 +1,7 @@
-package com.drdolgosheev.restwebfluxsecuredemo.exceptions;public class AuthExeption {
+package com.drdolgosheev.restwebfluxsecuredemo.exceptions;
+
+public class AuthException extends ApiException{
+    public AuthException(String message, String errorCode) {
+        super(message, errorCode);
+    }
 }

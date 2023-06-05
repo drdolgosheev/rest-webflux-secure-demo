@@ -1,14 +1,12 @@
 package com.drdolgosheev.restwebfluxsecuredemo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 
+@Data
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
