@@ -2,7 +2,7 @@ package com.drdolgosheev.restwebfluxsecuredemo.security;
 
 import com.drdolgosheev.restwebfluxsecuredemo.entity.UserEntity;
 import com.drdolgosheev.restwebfluxsecuredemo.exceptions.AuthException;
-import com.drdolgosheev.restwebfluxsecuredemo.repository.UserRepository;
+import com.drdolgosheev.restwebfluxsecuredemo.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.*;
 @Component
 @RequiredArgsConstructor
 public class SecurityService {
-    private final UserRepository userRepository;
+    private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
 
@@ -66,7 +66,7 @@ public class SecurityService {
     }
 
     public Mono<TokenDetails> authenticate(String username, String password){
-        return userRepository.findByUsername(username).flatMap(user -> {
+        return userService.getUserByUsername(username).flatMap(user -> {
 
             if (!user.isEnabled())
                 return Mono.error(new AuthException("Account disabled", "AC001"));
