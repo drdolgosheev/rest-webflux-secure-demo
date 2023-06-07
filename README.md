@@ -1,4 +1,4 @@
-Пример создания REST API с использованием следующих технологий:
+Sample of REST API service with usage of technologies:
 - Java 17
 - Spring Boot 3
 - Spring Security (JWT)
